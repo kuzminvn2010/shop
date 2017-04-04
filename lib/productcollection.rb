@@ -13,6 +13,11 @@ class ProductCollection
       products << Book.from_file(file_path)
     end
 
+    disks_paths = Dir.glob("#{current_path}/data/discs/*.txt")
+    disks_paths.each do |file_path|
+      products << Disc.from_file(file_path)
+    end
+
     self.new(products)
   end
 

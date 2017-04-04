@@ -1,12 +1,13 @@
 require_relative "lib/product"
 require_relative "lib/film"
 require_relative "lib/book"
+require_relative "lib/disc"
 require_relative "lib/productcollection"
 
 current_path = File.dirname(__FILE__)
 collections = ProductCollection.from_dir(current_path)
 
-puts collections.sort!(:by => :title).to_a
+puts collections.sort!(:by => :quantity, :order => :decrease).to_a
 
 
 

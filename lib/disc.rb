@@ -1,5 +1,5 @@
-class Film < Product
-  attr_accessor :title, :director, :year
+class Disc < Product
+  attr_accessor :title, :genre, :author, :year
 
   def self.from_file(file_path)
     if File.exist?(file_path)
@@ -8,10 +8,11 @@ class Film < Product
 
       self.new(
         :title => strings[0],
-        :director => strings[1],
-        :year => strings[2].to_i,
-        :price => strings[3].to_i,
-        :quantity => strings[4].to_i
+        :author => strings[1],
+        :genre => strings[2],
+        :year => strings[3].to_i,
+        :price => strings[4].to_i,
+        :quantity => strings[5].to_i
       )
     else
       abort "Файл не найден!"
@@ -21,12 +22,12 @@ class Film < Product
   def initialize(param)
     super
     @title = param[:title]
-    @director = param[:director]
+    @genre = param[:genre]
+    @author = param[:author]
     @year = param[:year]
   end
 
   def to_s
-     "Фильм #{@title}, #{@year}, реж. #{@director}, #{super}"
+    "Альбом <#{@title}> - #{@author},  #{@genre}, #{@year} #{super}"
   end
-
 end
