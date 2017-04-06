@@ -1,3 +1,4 @@
+require_relative "to_s"
 class Film < Product
   attr_accessor :title, :director, :year
 
@@ -25,8 +26,9 @@ class Film < Product
     @year = param[:year]
   end
 
-  def to_s
-     "Фильм #{@title}, #{@year}, реж. #{@director}, #{super}"
-  end
+  include To_s
 
+  def to_s_for_cart
+     "Фильм #{@title}, #{@year}, реж. #{@director}"
+  end
 end

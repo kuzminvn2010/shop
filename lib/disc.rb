@@ -1,3 +1,4 @@
+require_relative "to_s"
 class Disc < Product
   attr_accessor :title, :genre, :author, :year
 
@@ -27,7 +28,9 @@ class Disc < Product
     @year = param[:year]
   end
 
-  def to_s
-    "Альбом <#{@title}> - #{@author},  #{@genre}, #{@year} #{super}"
+  include To_s
+
+  def to_s_for_cart
+    "Диск <#{@title}> - #{@author},  #{@genre}, #{@year} года"
   end
 end

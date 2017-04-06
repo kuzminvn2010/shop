@@ -1,3 +1,4 @@
+require_relative "to_s"
 class Book < Product
   attr_accessor :title, :type, :author
 
@@ -25,7 +26,9 @@ class Book < Product
     @author = param[:author]
   end
 
-  def to_s
-    "Книга #{@title}, #{@type}, автор - #{@author}, #{super}"
+  include To_s
+
+  def to_s_for_cart
+    "Книга #{@title}, #{@type}, автор - #{@author}"
   end
 end

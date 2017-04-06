@@ -1,5 +1,5 @@
+require_relative "empty"
 class ProductCollection
-
   def self.from_dir(current_path)
     products = []
     films_paths = Dir.glob("#{current_path}/data/films/*.txt")
@@ -49,5 +49,15 @@ class ProductCollection
     # Возвращаем ссылку на экземпляр, чтобы у него по цепочке можно было вызвать
     # другие методы.
     self
+  end
+
+  include Empty
+
+  # удаляем продукт со склада (коллекции продуктов магазина)
+  # если количество такого продукта на складе равно нулю
+  def sell(user_input)
+    if @products[user_input].quantity == 0
+      @products.delete_at(user_input)
+    end
   end
 end
