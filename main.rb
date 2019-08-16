@@ -31,7 +31,7 @@ loop do
     puts "неправильный ввод"
   end
   break puts "Вы скупили весь магазин!" if collections.empty?
-  abort("Жаль что Вы покидаете нас") if user_input == 0 && cart.empty?
+    abort("Жаль что Вы покидаете нас") if user_input == 0 && cart.empty?
   break puts "Спасибо за покупки! Приходите ещё!" if user_input == 0
 end
 
