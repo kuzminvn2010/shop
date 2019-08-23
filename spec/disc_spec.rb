@@ -16,4 +16,8 @@ describe 'Disc initialize' do
         quantity: '3'.to_i
         )
     end
+
+    it "cheks disc method to_s_for_cart" do
+      expect(disc.to_s_for_cart).to eq "Диск <#{disc.title}> - #{disc.author},  #{disc.genre}, #{disc.year} года"
+    end
 end
