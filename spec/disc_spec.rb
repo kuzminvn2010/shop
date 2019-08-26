@@ -3,7 +3,7 @@ require_relative '../lib/product'
 require_relative '../lib/disc'
 
 describe 'Disc initialize' do
-  let (:file_path) { File.dirname(__FILE__) + '/fixtures/1.txt'}
+  let (:file_path) { File.dirname(__FILE__) + '/fixtures/data/discs/1.txt'}
   let (:disc) {Disc.from_file(file_path) }
 
     it "checks disc init attributes" do

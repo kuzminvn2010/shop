@@ -11,9 +11,15 @@ describe 'Product collection initialize' do
     product_collection = ProductCollection.from_dir(dir_path)
   end
 
+  let(:products) {product_collection.to_a}
+
   it 'checks product_collection some instance variables' do
-    expect(product_collection.to_a[0].title).to eq "Painkiller"
-    expect(product_collection.to_a[0].author).to eq "Judas Priest"
-    expect(product_collection.to_a[0].genre).to eq "Heavy Metal"
+    expect(products[0].title).to eq "Digital Distortion"
+    expect(products[0].author).to eq "Iggy Azalea"
+    expect(products[0].genre).to eq "Pop music"
+  end
+
+  it 'chooses products by price, order decrease' do
+    expect(products.sort!(:by => :price, :order => :decrease)[0].title). to eq "Painkiller"
   end
 end
