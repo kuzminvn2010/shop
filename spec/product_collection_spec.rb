@@ -20,6 +20,6 @@ describe 'Product collection initialize' do
   end
 
   it 'chooses products by price, order decrease' do
-    expect(products.sort!(:by => :price, :order => :decrease)[0].title). to eq "Painkiller"
+    expect { product_collection.sort!(:by => :price, :order => :decrease) }.to change { products[0].title }.from("Digital Distortion").to("Herzeleid")
   end
 end
