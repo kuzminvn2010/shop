@@ -22,4 +22,8 @@ describe 'Product collection initialize' do
   it 'chooses products by price, order decrease' do
     expect { product_collection.sort!(:by => :price, :order => :decrease) }.to change { products[0].title }.from("Digital Distortion").to("Herzeleid")
   end
+
+  it 'checks whether the array is empty or not' do
+    expect(product_collection.empty?).to be_falsey
+  end
 end
