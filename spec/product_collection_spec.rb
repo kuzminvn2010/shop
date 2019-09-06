@@ -23,7 +23,11 @@ describe 'Product collection initialize' do
     expect { product_collection.sort!(:by => :price, :order => :decrease) }.to change { products[0].title }.from("Digital Distortion").to("Herzeleid")
   end
 
-  it 'checks whether the array is empty or not' do
+  it 'checks whether the products array is empty or not' do
     expect(product_collection.empty?).to be_falsey
+  end
+
+  it 'checks delete product from product collection' do
+    expect { product_collection.sell(2) }.to change { :products }.to(products.delete_at(2))
   end
 end
